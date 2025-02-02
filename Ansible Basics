@@ -1,0 +1,134 @@
+ANSIBLE :
+
+Introduction
+Ansible is a powerful IT automation tool used to manage and configure systems, deploy software, and automate complex workflows. It is agentless and works over SSH (or WinRM for Windows systems) to manage both Linux and Windows systems. Ansible uses YAML (YAML Ain't Markup Language) for its configuration files, which makes it easy to read and write.
+
+This repository contains examples and basic explanations to help you get started with Ansible.
+
+Table of Contents
+What is Ansible?
+Installation
+Ansible Basics
+Inventory
+Playbooks
+Modules
+Running Ansible Commands
+Example Playbooks
+Conclusion
+What is Ansible?
+Ansible is an open-source automation tool that helps in managing servers and services. With its simple, YAML-based playbooks, it allows system administrators and DevOps engineers to automate tasks like software installation, system updates, and service configuration.
+
+Agentless: No need to install agents on remote machines.
+Declarative: You describe the desired state, and Ansible ensures the system matches that state.
+Easy to Learn: It uses YAML syntax, which is human-readable.
+Installation
+You can install Ansible on most Linux distributions with a package manager.
+
+For Ubuntu/Debian:
+
+bash
+Copy
+sudo apt update
+sudo apt install ansible
+For CentOS/RHEL:
+
+bash
+Copy
+sudo yum install epel-release
+sudo yum install ansible
+For macOS (using Homebrew):
+
+bash
+Copy
+brew install ansible
+For Windows, you can use Windows Subsystem for Linux (WSL) to install Ansible.
+
+Ansible Basics
+Inventory
+The inventory file defines the hosts and groups of hosts that Ansible will manage. By default, Ansible looks for an inventory file located at /etc/ansible/hosts. You can also define a custom inventory file using the -i option.
+
+Example of an inventory file (inventory.ini):
+
+ini
+Copy
+[webservers]
+web1.example.com
+web2.example.com
+
+[databases]
+db1.example.com
+db2.example.com
+Playbooks
+Ansible uses playbooks written in YAML to define automation tasks. A playbook consists of one or more "plays," each targeting a specific group of hosts.
+
+Example of a simple playbook (setup.yml):
+
+yaml
+Copy
+---
+- name: Install Apache on webservers
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+Modules
+Ansible comes with a wide range of modules to handle common tasks such as package management, file manipulation, and system services.
+
+Example of using the apt module to install a package:
+
+yaml
+Copy
+- name: Install a package
+  hosts: webservers
+  tasks:
+    - name: Ensure Apache is installed
+      apt:
+        name: apache2
+        state: present
+Some commonly used modules:
+
+apt: Manage packages on Debian-based systems.
+yum: Manage packages on Red Hat-based systems.
+service: Manage services (start, stop, restart).
+copy: Copy files from the local system to remote hosts.
+Running Ansible Commands
+Once you've set up your playbooks and inventory, you can run Ansible commands to execute them on your remote systems.
+
+To run a playbook:
+
+bash
+Copy
+ansible-playbook -i inventory.ini setup.yml
+To run an ad-hoc command (e.g., check connectivity):
+
+bash
+Copy
+ansible -i inventory.ini webservers -m ping
+Example Playbooks
+Example 1: Install Nginx on webservers
+yaml
+Copy
+---
+- name: Install Nginx
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install nginx package
+      apt:
+        name: nginx
+        state: present
+Example 2: Update System Packages
+yaml
+Copy
+---
+- name: Update all system packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update package list and upgrade all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
