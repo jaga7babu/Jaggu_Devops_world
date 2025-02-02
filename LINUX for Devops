@@ -1,0 +1,103 @@
+Linux for DevOps
+
+
+Linux is a key operating system used in the world of DevOps. It's widely known for its stability, performance, and flexibility. DevOps teams rely on Linux for various tasks including system administration, automation, and cloud infrastructure management. This repository is a guide to understanding the key Linux concepts and tools that DevOps professionals should be familiar with.
+
+Table of Contents
+Why Linux for DevOps?
+Linux Basics for DevOps
+Command Line Basics
+File System Structure
+Package Management
+Essential Linux Tools for DevOps
+SSH and Remote Management
+System Monitoring
+Log Management
+Networking Tools
+Automation and Scripting
+Shell Scripting
+Cron Jobs
+Linux Security Basics
+User Management
+File Permissions
+Conclusion
+Why Linux for DevOps?
+Linux is a popular choice for DevOps teams because:
+
+Stability & Security: Linux is known for its robust security features and long-term stability.
+Cost-Efficiency: Linux is open-source and free to use.
+Flexibility & Customization: Linux allows DevOps engineers to customize their environment to fit their needs.
+Widespread Adoption: Many cloud platforms and servers run Linux, making it essential for DevOps professionals.
+Tooling Support: Linux has a rich ecosystem of DevOps tools for configuration management, CI/CD, automation, and cloud management.
+Linux Basics for DevOps
+Command Line Basics
+Understanding the Linux command line (shell) is essential for DevOps. Here are a few key commands:
+
+ls – List files and directories.
+cd – Change directory.
+cp – Copy files.
+mv – Move or rename files.
+rm – Remove files.
+pwd – Print working directory.
+cat – Display the contents of a file.
+grep – Search text using patterns.
+echo – Display a message or output.
+These commands help DevOps professionals interact with systems efficiently.
+
+File System Structure
+In Linux, everything is treated as a file, including hardware and processes. Here are some important directories:
+
+/ – Root directory.
+/bin – Essential system binaries (commands).
+/etc – Configuration files.
+/var – Variable files (e.g., logs, databases).
+/home – User home directories.
+/usr – User binaries and software.
+Understanding this structure is key when managing systems and configuring servers.
+
+Package Management
+Linux distributions (distros) use package managers to install, update, and remove software. Common package managers include:
+
+APT (Advanced Package Tool) for Debian/Ubuntu:
+
+bash
+Copy
+sudo apt update
+sudo apt install <package-name>
+YUM (Yellowdog Updater, Modified) for CentOS/RedHat:
+
+bash
+Copy
+sudo yum install <package-name>
+Package management is crucial for maintaining consistency across environments.
+
+Essential Linux Tools for DevOps
+SSH and Remote Management
+SSH (Secure Shell) is widely used to access remote Linux servers:
+
+bash
+Copy
+ssh username@hostname
+This allows DevOps engineers to manage multiple servers remotely and securely.
+
+System Monitoring
+Monitoring the health of Linux systems is essential for performance. Tools include:
+
+top / htop – View active processes and system usage.
+df – Check disk space usage.
+free – Check memory usage.
+uptime – View system uptime and load average.
+Log Management
+Linux provides log files that are essential for debugging and monitoring system activities:
+
+/var/log/syslog – System logs.
+/var/log/auth.log – Authentication logs.
+Tools like journalctl (for systemd logs) and logrotate (for log management) are used for managing and analyzing logs.
+
+Networking Tools
+Understanding Linux networking tools is essential for DevOps tasks like troubleshooting or configuring networks:
+
+ifconfig / ip – Display network interfaces.
+ping – Check network connectivity.
+netstat – Show network connections.
+scp – Securely copy files between hosts.
